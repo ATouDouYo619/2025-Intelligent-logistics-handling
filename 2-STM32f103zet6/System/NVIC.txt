@@ -1,0 +1,62 @@
+NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);
+
+在配置 NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority 和 NVIC_InitStructure.NVIC_IRQChannelSubPriority 时，有一些要求和注意事项需要考虑：
+
+1. 优先级分组配置
+中断优先级的配置依赖于 NVIC 优先级分组。优先级分组配置决定了抢占优先级和响应优先级字段的位数。例如，常见的优先级分组有以下几种：
+
+NVIC_PriorityGroup_0: 0 位抢占优先级, 4 位响应优先级
+NVIC_PriorityGroup_1: 1 位抢占优先级, 3 位响应优先级
+NVIC_PriorityGroup_2: 2 位抢占优先级, 2 位响应优先级
+NVIC_PriorityGroup_3: 3 位抢占优先级, 1 位响应优先级
+NVIC_PriorityGroup_4: 4 位抢占优先级, 0 位响应优先级
+
+2. 抢占优先级 (NVIC_IRQChannelPreemptionPriority)
+抢占优先级决定了中断的优先级如何与其他中断比较。抢占优先级数值越低，优先级越高。根据你选择的优先级分组，抢占优先级的位数可能会有所不同。
+
+0: 最高优先级
+1: 第二高优先级
+2: 第三高优先级
+3: 最低优先级（如果只设置了4级抢占优先级）
+3. 响应优先级 (NVIC_IRQChannelSubPriority)
+
+响应优先级在中断优先级相同时用于决定哪个中断将首先被处理。响应优先级数值越低，优先级越高。响应优先级通常是为了在同一个抢占优先级中进一步区分优先级。
+
+0: 最高响应优先级
+1: 第二高响应优先级
+2: 第三高响应优先级
+3: 最低响应优先级（如果只设置了4级响应优先级）
+
+示例设置
+假设你使用优先级分组 2，即 2 位抢占优先级和 2 位响应优先级，那么：
+
+NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority 设置为 0 表示中断具有最高的抢占优先级。
+NVIC_InitStructure.NVIC_IRQChannelSubPriority 设置为 1 表示在相同抢占优先级的情况下，中断具有第二高的响应优先级。
+c
+NVIC_InitTypeDef NVIC_InitStructure;
+
+NVIC_InitStructure.NVIC_IRQChannel = TIM3_IRQn;  // 需要设置的中断通道
+NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;  // 最高抢占优先级
+NVIC_InitStructure.NVIC_IRQChannelSubPriority = 1;  // 第二高响应优先级
+NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;  // 使能中断
+NVIC_Init(&NVIC_InitStructure);
+
+假设你有两个中断，它们的配置如下：
+
+中断 A:
+
+NVIC_IRQChannelPreemptionPriority = 0
+NVIC_IRQChannelSubPriority = 1
+中断 B:
+
+NVIC_IRQChannelPreemptionPriority = 0
+NVIC_IRQChannelSubPriority = 2
+如何处理这些中断：
+抢占优先级：所有抢占优先级为 0 的中断被认为是具有最高优先级的中断。因此，如果有多个中断同时发生，并且这些中断的抢占优先级都是 0，它们的处理顺序将取决于响应优先级。
+
+响应优先级：在这种情况下，NVIC_IRQChannelSubPriority 决定了相同抢占优先级的中断的处理顺序。响应优先级数值越低，中断优先级越高。
+
+具体的处理顺序：
+如果中断 A 和中断 B 同时发生，NVIC 将根据 NVIC_IRQChannelSubPriority 决定处理顺序。在这个例子中，中断 A 的响应优先级为 1，而中断 B 的响应优先级为 2。因此，中断 A 会在中断 B 之前处理，因为 1 低于 2，意味着更高的优先级。
+
+
