@@ -1,11 +1,14 @@
-# 2025-Intelligent-logistics-handling
+# 🚚 2025-智能物流搬运 | Smart Logistics Robot
 
-用于存储2025年智能物流搬运的资料
+> 开源硬件与软件系统解决方案，适用于智能仓储物流机器人开发
 
-一：MaixCam嵌入式设备，运行平台MaixVision。
+![Project Cover Image](建议补充项目实物图/架构图)  
 
-二：主控代码，使用标准外设库函数编写
-
-三：整体结构设计，使用UG12.0
-
-四：PCB和原理图的json文件，嘉立创EDA标准版
+## 📦 项目结构
+```bash
+├── 1-MaixCam_Embedded/      # 视觉处理子系统
+├── 2-STM32_MainController/  # 主控核心逻辑
+├── 3-Mechanical_Design/     # 机械结构模型
+├── 4-PCB_Design/            # 电路设计文件
+├── .gitattributes
+└── README.md                # 本文档
