@@ -47,7 +47,6 @@
       部分GPIO引脚引出
       外设专用接口
 ### 5. 视频链接
-- **bilibili**：
   [](https://www.bilibili.com/video/BV1xx411c7Xz)
 ### 6. 比赛结局
   - 1.把速度拉到最快可以再4分15秒左右完赛，物料盘全随机
