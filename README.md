@@ -46,7 +46,7 @@
    ​​-🔌全接口扩展板设计：
       部分GPIO引脚引出
       外设专用接口
-### 5. 视频链接
+### 5. 视频链接 
 - **Bilibili**：
   [![点这里](https://img.shields.io/badge/Bilibili-点这里-00A1D6)](https://www.bilibili.com/video/BV1o9uvzvEtX)
 ### 6. 比赛结局
