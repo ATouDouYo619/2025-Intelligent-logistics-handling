@@ -47,7 +47,8 @@
       部分GPIO引脚引出
       外设专用接口
 ### 5. 视频链接
-  [](https://www.bilibili.com/video/BV1xx411c7Xz)
+- **Bilibili**：
+  [![MaixCam教程](https://img.shields.io/badge/Bilibili-MaixCam教程-00A1D6)](https://www.bilibili.com/video/BV1o9uvzvEtX)
 ### 6. 比赛结局
   - 1.把速度拉到最快可以再4分15秒左右完赛，物料盘全随机
   - 2.可以跑完全程入库
