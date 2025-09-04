@@ -48,7 +48,7 @@
       外设专用接口
 ### 5. 视频链接
 - **bilibili**：
-   [![Bilibili](https://img.shields.io/badge/Bilibili-Bilibili-00A1D6)]([https://www.bilibili.com/video/BV12EeDeaEGp](https://www.bilibili.com/video/BV1o9uvzvEtX/?spm_id_from=333.337.search-card.all.click))
+   https://www.bilibili.com/video/BV1o9uvzvEtX/?spm_id_from=333.337.search-card.all.click&vd_source=c0d689309301dc327ae2ed9a898cc59a
 ### 6. 比赛结局
   - 1.把速度拉到最快可以再4分15秒左右完赛，物料盘全随机
   - 2.可以跑完全程入库
